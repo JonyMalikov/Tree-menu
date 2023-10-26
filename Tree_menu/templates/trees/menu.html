@@ -1,0 +1,11 @@
+{% load draw_menu %}
+{% for menu in menues %}
+    <li class="menu">
+        <a href="{% url 'trees:menu' menu.chield_name.id %}">{{ menu.chield_name }}</a> 
+    </li>
+    {% if menu.chield_name in fathers %}
+    <ul class="menu_items">
+        {% draw_menu id menu.chield_name.id fathers %} 
+    </ul>    
+    {%endif%}
+{% endfor %}
